@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Udemy Course Section</title>
+<style>
+  .course-card {
+    display: block; /* Initially show all cards */
+  }
+  .course-card.hide {
+    display: none; /* Hide cards when filtered */
+  }
+</style>
+</head>
+<body>
+
+<div class="filters">
+  <button onclick="filterCourses('all')">All</button>
+  <button onclick="filterCourses('html')">HTML</button>
+  <button onclick="filterCourses('css')">CSS</button>
+</div>
+
+<div class="course-cards">
+  <div class="course-card html">
+    <h2>HTML Crash Course</h2>
+    <p>This course covers the basics of HTML.</p>
+  </div>
+  <div class="course-card css">
+    <h2>CSS Styling Masterclass</h2>
+    <p>Learn advanced CSS techniques in this course.</p>
+  </div>
+  <div class="course-card html">
+    <h2>HTML5 Fundamentals</h2>
+    <p>Explore the latest features of HTML5.</p>
+  </div>
+</div>
+
+<script>
+  function filterCourses(filter) {
+    const cards = document.querySelectorAll('.course-card');
+    cards.forEach(card => {
+      if (filter === 'all' || card.classList.contains(filter)) {
+        card.classList.remove('hide');
+      } else {
+        card.classList.add('hide');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
